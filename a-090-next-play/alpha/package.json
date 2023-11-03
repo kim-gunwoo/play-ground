@@ -4,32 +4,41 @@
   "private": true,
   "scripts": {
     "dev:n": "next dev -p 4201",
-    "dev": "next dev -p 4200",
+    "dev:k": "next dev -p 4200",
+    "dev": "next dev",
+    "dev:inspect": " NODE_OPTIONS='--inspect --max-old-space-size=512' next dev",
     "build": "next build",
     "start": "next start",
+    "start:inspect": " NODE_OPTIONS='--inspect --max-old-space-size=128' next start",
     "lint": "next lint",
     "test": "jest --watchAll",
     "test:ci": "jest --ci"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.32.0",
+    "@tanstack/react-query-devtools": "^4.36.1",
     "@types/node": "20.2.3",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
     "axios": "^1.4.0",
+    "browser-image-compression": "^2.0.2",
     "dayjs": "^1.11.7",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.3",
     "firebase": "^10.0.0",
+    "lodash": "^4.17.21",
     "next": "13.4.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "^1.63.6",
     "typescript": "5.0.4",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "zustand": "^4.4.3"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
+    "@types/lodash": "^4.14.199",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0"
   }
