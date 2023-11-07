@@ -1,3 +1,4 @@
+'use client'
 import Table, { TableCellType } from "@/components/table/Table"
 import { useMemo } from "react";
 
@@ -30,12 +31,15 @@ export default function TablePage() {
             renderCell: () => ''
         },
     ], []);
-    const datas = [
+    let datas = [
         { name: 'ap1', age: 10, addr: 'seoul' },
         { name: 'ap2', age: 120, addr: 'seoul-1' },
         { name: 'ap3', age: 30, addr: 'seoul' },
         { name: 'ap4', age: 110, addr: 'seoul-1' },
     ]
+    for (let index = 0; index < 10; index++) {
+        datas = [...datas, ...datas];
+    }
 
     return (
         <div>
