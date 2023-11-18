@@ -15,3 +15,6 @@ dayjs 기준으로 date용 input 작업 (DateInput)
 기본 Calendar 작업
 ```
 
+
+"@tanstack/react-query": "^4.32.0",
+"@tanstack/react-query-devtools": "^4.36.1",
