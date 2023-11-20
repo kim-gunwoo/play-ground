@@ -1,6 +1,10 @@
 'use client'
 
 
+
+import api from '@/api';
+import { Todos } from '@/api/Todos';
+
 import {
     QueryFunction,
     QueryOptions,
@@ -25,7 +29,7 @@ type TData = unknown;
 // type Query
 
 function usePage(
-    queryKeys: TQueryKey,
+    queryKey: TQueryKey,
     queryFn: QueryFunction<TQueryFnData, TQueryKey>,
     queryOptions?: Omit<UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>, 'queryKey' | 'queryFn'>,
 ) {
@@ -39,7 +43,11 @@ function usePage(
     //     })
     // }
 
-    return useQuery(queryKeys, queryFn, queryOptions);
+
+    // useQuery(queryKeys, queryFn, queryOptions);
+    
+
+    return useQuery({ queryKey, queryFn, ...queryOptions });
 }
 
 
@@ -54,17 +62,57 @@ type TRes = {
 
 const getTodos = async (): Promise<AxiosResponse<TRes, TReq>> => {
     try {
-        return await axios.get<TRes>('https://jsonplaceholder.typicode.com/todos')
+
+        // const response =  await axios.get<TRes>('https://jsonplaceholder.typicode.com/todos')
+        // const response =  await axios.get<TRes>('https://jsonplaceholder.typicode.com/todos')
+        // const response = await Todos.getAll();
+        const response = await api.Todos.getAll();
+        // const response = await api.Todos2.getAll();
+        return response;
     } catch (error) {
         throw error;
     }
 }
 
 
+function useGetTodo(
+    queryOptions?: UseQueryOptions<TQueryFnData, TError, TData>,
+    // queryOptions?: Omit<UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>, 'queryKey' | 'queryFn'>,
+    // queryOptions?: Omit<UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>, 'queryKey' | 'queryFn'>,
+    // queryOptions?: Omit<UseQueryOptions<TQueryFnData, TError, TData>, 'queryKey' | 'queryFn'>,
+) {
+    const queryClient = useQueryClient();
+
+    // const prefetchTodos = async () => {
+    //     // The results of this query will be cached like a normal query
+    //     await queryClient.prefetchQuery({
+    //         queryKey: ['todos'],
+    //         queryFn: getTodos,
+    //     })
+    // }
+    // return useQuery(['todos'], getTodos, queryOptions);
+
+    // useQuery(['todos'], async () => await api.Todos.getAll(), queryOptions);
+
+    useQuery({
+        queryKey: ['todos'],
+        queryFn: async () => await api.Todos.getAll(),
+        ...queryOptions
+    });
+
+    useQuery<TQueryFnData, TError, TData>({
+        queryKey: ['todos'],
+        queryFn: async () => await api.Todos.getAll(),
+        ...queryOptions
+    });
+    return
+}
+
+
+
 export default function TestPage() {
     // const a = usePage(['test'], getDate, {});
     const [isEnabled, setEnabled] = useState(false);
-    
     // const { data } = useQuery<AxiosResponse<TRes, TReq>, AxiosError, TRes>(['todos'], getTodos, {
     //     enabled: isEnabled,
     //     select(data) {
@@ -72,14 +120,13 @@ export default function TestPage() {
     //     },
     // })
 
-    const {data} = usePage(['todos'], getTodos, {
-        enabled :isEnabled
-    })
 
+    const { data } = usePage(['todos'], getTodos, { enabled: isEnabled })
 
-    console.log(data)
+    // const { error, data: data2 } = useGetTodo();
+
+    // console.log(data,data2)
     // console.log(data?.data[0].title)
-
 
     useEffect(() => {
         (async () => {
@@ -87,10 +134,6 @@ export default function TestPage() {
             console.log(res, res?.data[0].title)
         })()
     }, [])
-
-
-
-
 
     return <div>
         <div>

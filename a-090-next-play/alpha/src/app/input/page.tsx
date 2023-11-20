@@ -13,12 +13,10 @@ export default function InputPage() {
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { value: changedValud } = e.target;
-        const targetValue = changedValud.replace(/[^0-9]/g, '');
 
-        const originValue = targetValue.split('');
+        const originValue = e.target.value.replace(/[^0-9]/g, '').split('');
+
         const maskingSplit = masking.split('');
-
         const eMap = new Map<number, string>();
 
         masking.split('').forEach((v, i) => {
@@ -27,26 +25,23 @@ export default function InputPage() {
             }
         })
 
-        let maskingValue = '';
         let count = 0;
-        for (let idx in maskingSplit) {
-            if (originValue[idx]) {
-                let prefix = '';
-                if (eMap.has(Number(idx))) {
-                    prefix = maskingSplit[idx];
+        const currentValue = maskingSplit.map((v, idx) => {
+            if (originValue[idx - count]) {
+                if (eMap.has(idx)) {
                     count++;
+                    return eMap.get(idx);
                 }
-
-                maskingValue += prefix + originValue[idx];
-                continue;
+                return originValue[idx - count];
             }
+            return v;
+        }).join('');
 
-            maskingValue += maskingSplit[idx];
-        }
+        inputRef.current!.value = currentValue;
+        const changedValue = currentValue.replace(/[^0-9]/g, '');
+        setValue(changedValue);
+        focusing(changedValue.length + count);
 
-        setValue(targetValue);
-        inputRef.current!.value = maskingValue;
-        focusing(targetValue.length + count);
     }
 
     useEffect(() => {

@@ -15,8 +15,8 @@
     "test:ci": "jest --ci"
   },
   "dependencies": {
-    "@tanstack/react-query": "^4.32.0",
-    "@tanstack/react-query-devtools": "^4.36.1",
+    "@tanstack/react-query": "^5.8.4",
+    "@tanstack/react-query-devtools": "^5.8.4",
     "@types/node": "20.2.3",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
