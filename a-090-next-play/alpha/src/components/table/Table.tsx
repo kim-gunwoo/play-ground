@@ -1,3 +1,5 @@
+import { useEffect } from "react"
+
 interface IHeader<T> {
     collumns: Omit<TableCell<T>, 'renderCell'>[],
 }

@@ -8,17 +8,17 @@ import { render } from "react-dom";
 import { renderToString } from 'react-dom/server'
 
 
-// declare global {
-//     interface Window {
-//         naver: any;
-//     }
-// }
+declare global {
+    interface Window {
+        naver: any;
+    }
+}
 
-// declare namespace naver.maps {
-//     type MapOptions = any;
-// };
+declare namespace naver.maps {
+    type MapOptions = any;
+};
 
-// type Naver = any;
+type Naver = any;
 
 interface NaverMapProps {
     mark?: (map: any) => any;
@@ -55,7 +55,7 @@ export default function NaverMap(props: NaverMapProps) {
     }, []);
 
 
-    const createMap = useCallback((naver) => {
+    const createMap = useCallback((naver: Naver) => {
         // const naver = window.naver;
         if (!mapElement.current || !naver) return;
 

@@ -1,8 +1,10 @@
 'use client'
 
 
+
 import api from '@/api';
 import { Todos } from '@/api/Todos';
+
 import {
     QueryFunction,
     QueryOptions,
@@ -14,8 +16,6 @@ import {
 } from '@tanstack/react-query';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
-
-
 
 
 type TQueryKey = string[];
@@ -43,6 +43,7 @@ function usePage(
     //     })
     // }
 
+
     // useQuery(queryKeys, queryFn, queryOptions);
     
 
@@ -61,6 +62,7 @@ type TRes = {
 
 const getTodos = async (): Promise<AxiosResponse<TRes, TReq>> => {
     try {
+
         // const response =  await axios.get<TRes>('https://jsonplaceholder.typicode.com/todos')
         // const response =  await axios.get<TRes>('https://jsonplaceholder.typicode.com/todos')
         // const response = await Todos.getAll();
@@ -71,6 +73,7 @@ const getTodos = async (): Promise<AxiosResponse<TRes, TReq>> => {
         throw error;
     }
 }
+
 
 function useGetTodo(
     queryOptions?: UseQueryOptions<TQueryFnData, TError, TData>,
@@ -106,16 +109,17 @@ function useGetTodo(
 }
 
 
+
 export default function TestPage() {
     // const a = usePage(['test'], getDate, {});
     const [isEnabled, setEnabled] = useState(false);
-
     // const { data } = useQuery<AxiosResponse<TRes, TReq>, AxiosError, TRes>(['todos'], getTodos, {
     //     enabled: isEnabled,
     //     select(data) {
     //         return data.data
     //     },
     // })
+
 
     const { data } = usePage(['todos'], getTodos, { enabled: isEnabled })
 
