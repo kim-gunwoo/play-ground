@@ -36,7 +36,7 @@ export default function Home() {
       <Link href={'/browser-image-compression'} >browser-image-compression</Link><br />
       <Link href={'/ssg'} >ssg</Link><br />
       <Link href={'/input'} >input</Link><br />
-
+      <Link href={'/dayjs'} >dayjs</Link><br />
 
       {/* <Image
         width={750}

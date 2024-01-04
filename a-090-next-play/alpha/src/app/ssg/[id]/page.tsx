@@ -1,4 +1,8 @@
 
+// export const dynamicParams = false;
+// export const dynamic = 'force-static';
+// export const revalidate = 'force-cache';
+// export const maxDuration = 0;
 
 export async function generateStaticParams() {
     // Generate two pages at build time and the rest (3-100) on-demand

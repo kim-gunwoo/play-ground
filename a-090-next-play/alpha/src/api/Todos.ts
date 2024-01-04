@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from "axios";
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, GenericAbortSignal, InternalAxiosRequestConfig } from "axios";
 
 
 interface TodoInterface {
@@ -29,7 +29,7 @@ const onRequest = (config: AxiosRequestConfigWithMetadata) => {
 
     if (method === 'get') {
         // config.timeout = 1000;
-        config.timeout = 100;
+        // config.timeout = 100;
     }
     console.debug(`[🚀 API] [${method?.toUpperCase()}] : ${url} | Request`);
     return config;
@@ -82,13 +82,14 @@ const setupInterceptors = (instance: AxiosInstance) => {
 }
 
 
-const axiosInstance = setupInterceptors(axios.create({ baseURL: 'https://jsonplaceholder.typicode.com' }));
+// const axiosInstance = setupInterceptors(axios.create({ baseURL: 'https://jsonplaceholder.typicode.com' }));
+const axiosInstance = setupInterceptors(axios.create({ baseURL: 'http://localhost:9999/api' }));
 
 
 export class Todos {
-    static async getAll(): Promise<AxiosResponse<TodoInterface[]>> {
+    static async getAll(config?: AxiosRequestConfig): Promise<AxiosResponse<TodoInterface[]>> {
         try {
-            return await axiosInstance.get('/todos');
+            return await axiosInstance.get('/todos', config);
         } catch (error) {
             throw error;
         }

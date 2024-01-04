@@ -1,10 +1,8 @@
 'use client'
 
 
-
 import api from '@/api';
 import { Todos } from '@/api/Todos';
-
 import {
     QueryFunction,
     QueryOptions,
@@ -16,6 +14,8 @@ import {
 } from '@tanstack/react-query';
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
+
+
 
 
 type TQueryKey = string[];
@@ -43,9 +43,8 @@ function usePage(
     //     })
     // }
 
-
     // useQuery(queryKeys, queryFn, queryOptions);
-    
+
 
     return useQuery({ queryKey, queryFn, ...queryOptions });
 }
@@ -62,7 +61,6 @@ type TRes = {
 
 const getTodos = async (): Promise<AxiosResponse<TRes, TReq>> => {
     try {
-
         // const response =  await axios.get<TRes>('https://jsonplaceholder.typicode.com/todos')
         // const response =  await axios.get<TRes>('https://jsonplaceholder.typicode.com/todos')
         // const response = await Todos.getAll();
@@ -73,7 +71,6 @@ const getTodos = async (): Promise<AxiosResponse<TRes, TReq>> => {
         throw error;
     }
 }
-
 
 function useGetTodo(
     queryOptions?: UseQueryOptions<TQueryFnData, TError, TData>,
@@ -109,37 +106,51 @@ function useGetTodo(
 }
 
 
-
 export default function TestPage() {
     // const a = usePage(['test'], getDate, {});
     const [isEnabled, setEnabled] = useState(false);
+
     // const { data } = useQuery<AxiosResponse<TRes, TReq>, AxiosError, TRes>(['todos'], getTodos, {
     //     enabled: isEnabled,
     //     select(data) {
     //         return data.data
     //     },
     // })
+    const queryClient = useQueryClient()
+    const query = useQuery({
+        queryKey: ['todos'],
+        queryFn: ({ signal }) => api.Todos.getAll({ signal }),
+    });
 
-
-    const { data } = usePage(['todos'], getTodos, { enabled: isEnabled })
+    // const { data } = usePage(['todos'], getTodos, { enabled: isEnabled })
 
     // const { error, data: data2 } = useGetTodo();
 
     // console.log(data,data2)
     // console.log(data?.data[0].title)
 
-    useEffect(() => {
-        (async () => {
-            const res = await getTodos()
-            console.log(res, res?.data[0].title)
-        })()
-    }, [])
+    console.log(query.isFetching, query.isLoading, query.isPending, query.status)
+
+    // useEffect(() => {
+    //     (async () => {
+    //         const res = await getTodos()
+    //         console.log(res, res?.data[0].title)
+    //     })()
+    // }, [])
 
     return <div>
         <div>
-            <button onClick={
+            {/* <button onClick={
                 () => setEnabled(p => !p)
-            }>toggle</button>
+            }>toggle</button> */}
+            <button onClick={
+                () => query.refetch()
+            }>refetch</button>
+            <button onClick={(e) => {
+                e.preventDefault();
+                queryClient.cancelQueries({ queryKey: ['todos'] });
+                console.log('?????')
+            }} >cancel</button>
         </div>
         <div></div>
     </div>

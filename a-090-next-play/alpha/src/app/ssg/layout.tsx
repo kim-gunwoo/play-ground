@@ -14,6 +14,7 @@ export default function SsgLayout({ children }: { children: React.ReactNode }) {
             <div><Link href={'/ssg'}>home</Link></div>
             <div><Link href={'/ssg/1'}>ssg 1</Link></div>
             <div><Link href={'/ssg/2'}>ssg 2</Link></div>
+            <div><Link href={'/ssg/11'}>ssg 11 not found</Link></div>
             <div>ssg page layout</div>
         </div>
         <div>{children}</div>
