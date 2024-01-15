@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 300px;
+            height: 400px;
+            display: grid;
+            grid-template-rows: repeat(2, 90px);
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-areas:
+                "header main"
+                "header aside"
+                /* "footer footer footer"; */
+        }
+
+        .container:nth-child(1) {
+            grid-template-areas:
+                "header header"
+                "header header"
+        }
+
+        .container:nth-child(2) {
+            grid-template-areas:
+                "header main"
+                "header main"
+        }
+
+        header.item {
+            grid-area: header;
+            background: red;
+        }
+
+        main.item {
+            grid-area: main;
+            background-color: blue;
+        }
+
+        aside.item {
+            grid-area: aside;
+            background-color: antiquewhite;
+        }
+
+        footer.item {
+            grid-area: footer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="item">HEADER</header>
+        <!-- <main class="item">MAIN</main> -->
+        <!-- <aside class="item">ASIDE</aside> -->
+        <!-- <footer class="item">FOOTER</footer> -->
+    </div>
+    <div class="container">
+        <header class="item">HEADER</header>
+        <main class="item">MAIN</main>
+        <!-- <aside class="item">ASIDE</aside> -->
+        <!-- <footer class="item">FOOTER</footer> -->
+    </div>
+    <div class="container">
+        <header class="item">HEADER</header>
+        <main class="item">MAIN</main>
+        <aside class="item">ASIDE</aside>
+        <!-- <footer class="item">FOOTER</footer> -->
+    </div>
+</body>
+
+</html>

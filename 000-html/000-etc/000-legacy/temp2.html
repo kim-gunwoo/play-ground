@@ -1,0 +1,106 @@
+<!doctype html>
+      <html>
+
+      <head>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+      </head>
+
+      <body style="margin: 0;">
+          <div style="position: relative; max-width: 100%; width: 100%; padding: 0; margin: 0; display: flex;">
+              <img src="https://passorderstatic.s3.ap-northeast-2.amazonaws.com/notice/2023-02-03/contents/1.jpg"
+                  style="width: 100%; height: 100%;">
+          </div>
+          <div style="position: relative; max-width: 100%; width: 100%; padding: 0; margin: 0; display: flex;">
+              <img src="https://passorderstatic.s3.ap-northeast-2.amazonaws.com/notice/2023-02-03/contents/1.motion.gif"
+                  style="width: 100%; height: 100%;">
+          </div>
+          <div style="position: relative; max-width: 100%; width: 100%; padding: 0; margin: 0; display: flex;">
+              <img src="https://passorderstatic.s3.ap-northeast-2.amazonaws.com/notice/2023-02-03/contents/2.jpg"
+                  style="width: 100%; height: 100%;">
+          </div>
+          <div style="position: relative; max-width: 100%; width: 100%; padding: 0; margin: 0; display: flex;">
+              <img src="https://passorderstatic.s3.ap-northeast-2.amazonaws.com/notice/2023-02-03/contents/2.motion.gif"
+                  style="width: 100%; height: 100%;">
+          </div>
+<div style="position: relative; max-width: 100%; width: 100%; padding: 0; margin: 0; display: flex;">
+              <img src="https://passorderstatic.s3.ap-northeast-2.amazonaws.com/notice/2023-02-03/contents/3.jpg"
+                  style="width: 100%; height: 100%;">
+          </div>
+<div style="position: relative; max-width: 100%; width: 100%; padding: 0; margin: 0; display: flex;">
+              <img src="https://passorderstatic.s3.ap-northeast-2.amazonaws.com/notice/2023-02-03/contents/3.motion수정.gif"
+                  style="width: 100%; height: 100%;">
+          </div>
+<div style="position: relative; max-width: 100%; width: 100%; padding: 0; margin: 0; display: flex;">
+              <img src="https://passorderstatic.s3.ap-northeast-2.amazonaws.com/notice/2023-02-03/contents/4.수정.jpg"
+                  style="width: 100%; height: 100%;">
+          </div>
+  <div style="position: relative; max-width: 100%; width: 100%; display: flex;">
+              <button
+                  style="width: 100%; height: 100%; background-color: transparent; border: 0; padding: 0; margin: 0; display: flex;"
+                  onclick="location.href='https://passorder.app.link/IEkbbK8lvyb'">
+                  <!--CTA영역 -->
+                  <img src="https://passorderstatic.s3.ap-northeast-2.amazonaws.com/notice/2023-02-03/contents/5.button1수정.jpg"
+                      style="width: 100%; height: 100%;">
+              </button>
+        </div>
+          <div style="position: relative; max-width: 100%; width: 100%; display: flex;">
+              <button
+                  style="width: 100%; height: 100%; background-color: transparent; border: 0; padding: 0; margin: 0; display: flex;"
+                  onclick="shareLinkButton()">
+                  <!-- C 영역 이미지 URL -->
+                  <img src="https://passorderstatic.s3.ap-northeast-2.amazonaws.com/notice/2023-02-03/contents/6.button2.jpg"
+                      style="width: 100%; height: 100%;">
+              </button>
+          </div>
+          <div style="position: relative; max-width: 100%; width: 100%; padding: 0; margin: 0; display: flex;">
+              <!-- B 영역 이미지 URL -->
+              <img src="https://passorderstatic.s3.ap-northeast-2.amazonaws.com/notice/2023-02-03/contents/7.jpg"
+                  style="width: 100%; height: 100%;">
+          </div>
+
+          <script>
+            function storeLinkButton() {
+                const shareData = {
+                    message: ``, // 공유될 설명
+                    url: '' // 공유될 URL - 비워서 보낼 시 공지사항/이벤트 웹페이지로 이동
+                };
+
+                  var varUA = navigator.userAgent.toLowerCase();
+
+                  if (varUA.match('android') != null) {
+                      open('https://play.google.com/store/apps/details?id=com.paytalab.mkseo.passorder ');
+
+                  } else if (varUA.indexOf("iphone") > -1 || varUA.indexOf("ipad") > -1 || varUA.indexOf("ipod") > -1) {
+                    open('itms-apps://itunes.apple.com/app/id1350702018');
+                  } else {
+
+                      //아이폰, 안드로이드 외 처리
+                  }
+              }
+
+              function shareLinkButton() {
+                const shareData = {
+                    message: `패스오더로 주문하면
+두배의 적립, 무제한 포인트까지!
+지금 바로 패스오더 같이적립에 대해 알아보세요
+
+▼ 자세히 보기🎁`, // 공유될 설명
+                    url: 'https://app.passorder.co.kr/notices/890c94d5-6519-45ba-902d-fc7bc8a6d32e' // 공유될 URL - 비워서 보낼 시 공지사항/이벤트 웹페이지로 이동
+                };
+
+                  var varUA = navigator.userAgent.toLowerCase();
+
+                  if (varUA.match('android') != null) {
+                      window.shareLink.postMessage(JSON.stringify(shareData));
+
+                  } else if (varUA.indexOf("iphone") > -1 || varUA.indexOf("ipad") > -1 || varUA.indexOf("ipod") > -1) {
+                      window.webkit.messageHandlers.shareLink.postMessage(shareData);
+                  } else {
+
+                      //아이폰, 안드로이드 외 처리
+                  }
+              }
+          </script>
+      </body>
+
+      </html>
