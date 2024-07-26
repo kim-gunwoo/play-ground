@@ -1,0 +1,23 @@
+// @import './variables.module';
+@use './variables.module';
+@use './variables.module' as v;
+@use 'src/styles/variables.module' as s;
+@use '~src/styles/bootstrap.module' as m;
+@use '@/styles/bootstrap.module' as m2;
+@use '@/styles/bootstrap.module';
+
+.testContainer {
+  // color: red;
+  // color: $primary-color;
+  color: variables.$secondary-color;
+  color: v.$yellow;
+  color: s.$blue;
+  color: m.$red;
+  color: m.$var-yellow;
+  color: bootstrap.$blue;
+  color: m2.$red;
+
+  .aaaa {
+    color: black;
+  }
+}

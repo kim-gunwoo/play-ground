@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`/input-test page matches snapshot 1`] = `
+<div>
+  <div>
+    <h2>
+      0
+    </h2>
+    <button
+      type="button"
+    >
+      +
+    </button>
+  </div>
+</div>
+`;
