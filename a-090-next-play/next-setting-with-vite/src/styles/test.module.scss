@@ -1,0 +1,28 @@
+// @import './variables.module';
+@use './variables.module';
+@use './variables.module' as v;
+@use 'src/styles/variables.module' as s;
+@use 'src/styles/bootstrap.module' as m;
+@use '@/styles/bootstrap.module' as m2;
+@use '@/styles/bootstrap.module';
+@use 'src/styles/mixin.module' as mix;
+
+.testContainer {
+  // color: red
+  // color: $primary-color;
+  color: variables.$secondary-color;
+  color: v.$yellow;
+  color: s.$blue;
+  color: m.$red;
+  color: m.$var-yellow;
+  color: bootstrap.$blue;
+  color: m2.$red;
+}
+
+.aaaa {
+  color: black;
+
+  @include bootstrap.mix-mixin-color(m2.$blue);
+  @include mix.mixin-color(m2.$red);
+  @include bootstrap.mixin-color(m2.$yellow);
+}

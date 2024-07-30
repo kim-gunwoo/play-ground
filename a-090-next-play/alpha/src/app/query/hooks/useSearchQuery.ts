@@ -21,6 +21,6 @@ export default function useSearchQuery() {
         // retry: true,
         refetchOnWindowFocus: false,
         staleTime: 1000 * 100,
-        cacheTime: 1000 * 500
+        gcTime: 1000 * 500
     })
 }

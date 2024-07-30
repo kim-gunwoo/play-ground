@@ -1,12 +1,10 @@
-import { useEffect } from "react"
-
 interface IHeader<T> {
     collumns: Omit<TableCell<T>, 'renderCell'>[],
 }
 
 export function Header<T>({ collumns }: IHeader<T>) {
     return (
-        <thead >
+        <thead style={{ position: "sticky", top: 0 }}>
             <tr>
                 {collumns.map((collumn, idx) => (
                     <th key={`collumns-${collumn.label}-${idx}`}>
@@ -68,12 +66,14 @@ interface ITable<T> {
 
 export default function Table<T>({ collumns, datas }: ITable<T>) {
     return (
-        <table>
-            <Header collumns={collumns} />
-            <Body
-                collumns={collumns}
-                datas={datas}
-            />
-        </table >
+        <div style={{overflow: 'scroll'}}>
+            <table>
+                <Header collumns={collumns} />
+                <Body
+                    collumns={collumns}
+                    datas={datas}
+                />
+            </table >
+        </div>
     )
 }

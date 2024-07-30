@@ -1,0 +1,17 @@
+/* stylelint-disable property-no-unknown */
+$primary-color: #64ff00;
+$secondary-color: #c41dc2;
+$yellow: #f79009;
+$blue: #2196f3;
+$red: #f97066;
+
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+:export {
+  primaryColor: $primary-color;
+  color_red: $red;
+
+  // not working
+  color: {
+    red: $red;
+  }
+}

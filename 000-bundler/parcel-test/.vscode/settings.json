@@ -1,0 +1,24 @@
+{
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit"
+    },
+    "editor.formatOnSave": true,
+    "stylelint.enable": true,
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    "stylelint.validate": [
+        "css",
+        "scss"
+    ],
+    "workbench.colorCustomizations": {
+        "sash.hoverBorder": "#8399c4",
+        "statusBar.background": "#607cb4",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#8399c4",
+        "statusBarItem.remoteBackground": "#607cb4",
+        "statusBarItem.remoteForeground": "#e7e7e7"
+    },
+    "jest.autoRun": "off"
+}

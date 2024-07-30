@@ -1,0 +1,252 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://webfontworld.github.io/naver/NanumSquare.css" rel="stylesheet">
+    <style>
+        html,
+        body {
+            box-sizing: border-box;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            font-family: 'NanumSquare', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .full-view {
+            position: relative;
+            display: flex;
+            max-width: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .full-view .full-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .content {
+            background: #333;
+        }
+
+        .guide {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            width: 100%;
+            padding: 1rem 1rem 4.25rem;
+            background: #fff;
+        }
+
+        .guide button {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 1rem;
+            background: #fae300;
+            border: 0;
+            border-radius: 0.5rem;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 1rem;
+            line-height: 1.375rem;
+            color: #391b1b;
+        }
+
+        .notice-wrapper {
+            display: flex;
+            flex-direction: column;
+            background: #333;
+            /* padding: 2rem 1rem 5.6875rem; */
+            padding: 2rem 1rem 1rem;
+            padding: 2rem 1rem 7rem;
+            font-style: normal;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 0.6875rem;
+            line-height: 0.75rem;
+            color: #aaa;
+        }
+
+        .notice-wrapper .notice-title {
+            font-size: 0.75rem;
+            line-height: 0.875rem;
+            font-weight: 700;
+        }
+
+        .notice-wrapper .notice-sub-title {
+            padding-top: 2rem;
+            font-size: 0.6875rem;
+            line-height: 0.75rem;
+        }
+
+        .notice-wrapper .notice-sub-title.top-16 {
+            padding-top: 1rem;
+        }
+
+        .notice-wrapper ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin: 0;
+            padding: 0.75rem 1rem;
+            padding-inline-start: 1rem;
+        }
+
+        .notice-wrapper .inquiry {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding: 2rem 0 0;
+        }
+
+        .floating-button-container {
+            position: fixed;
+            /* position: sticky; */
+            bottom: 0;
+            width: 100%;
+            padding: 0.75rem 1rem 1.5rem;
+        }
+
+        .floating-button-container button {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 1rem;
+            gap: 0.5rem;
+            background: #ff7949;
+            border: 0;
+            border-radius: 0.5rem;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 1rem;
+            line-height: 1.375rem;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="full-view">
+        <img class="full-image"
+            src="https://d2twywxul87hjh.cloudfront.net/event/one-hundred-won-deal-event/event-rumor-landing1-v1.jpg"
+            alt="패스오더 Image">
+    </div>
+
+    <div class="content">
+    <div class="full-view">
+        <img class="full-image"
+            src="https://d2twywxul87hjh.cloudfront.net/event/one-hundred-won-deal-event/event-rumor-landing2-v1.jpg"
+            alt="패스오더 Image">
+    </div>
+
+    <div class="guide">
+        <button onclick="shareEvent('goToSpreadHundredEvent')">
+            <svg width="28" height="26" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M13.9985 0.00305739C6.45485 0.00305739 0.342407 4.83635 0.342407 10.7997C0.342407 14.6819 2.93349 18.0809 6.8216 19.9832C6.53536 21.0507 5.78695 23.8475 5.63787 24.4438C5.45301 25.1862 5.90921 25.1773 6.21036 24.9775C6.44591 24.8225 9.95237 22.4372 11.4671 21.4086C12.287 21.5308 13.1368 21.5933 14.0015 21.5933C21.5422 21.5933 27.6576 16.76 27.6576 10.7967C27.6576 4.83329 21.5422 0 14.0015 0"
+                    fill="#391B1B" />
+                <path
+                    d="M8.50323 7.61816H4.51076C4.13506 7.61816 3.83093 7.92223 3.83093 8.29792C3.83093 8.67361 4.13506 8.97783 4.51076 8.97783H5.80779V13.7605C5.80779 13.9334 5.87935 14.1063 6.00458 14.2285C6.12683 14.3508 6.29679 14.4223 6.47271 14.4223H6.61881C6.79174 14.4223 6.9617 14.3508 7.08395 14.2285C7.20918 14.1033 7.28074 13.9334 7.28074 13.7605V8.97783H8.50621C8.8819 8.97783 9.18603 8.67361 9.18603 8.29792C9.18603 7.92223 8.8819 7.61816 8.50621 7.61816H8.50323Z"
+                    fill="#FAE300" />
+                <path
+                    d="M18.0982 13.146H16.2407V8.259C16.2407 7.85051 15.9097 7.52246 15.5042 7.52246C15.0987 7.52246 14.7677 7.85349 14.7677 8.259V13.5247C14.7677 13.5664 14.7737 13.6052 14.7796 13.6439C14.7737 13.6827 14.7677 13.7215 14.7677 13.7603C14.7677 14.1002 15.042 14.3774 15.3849 14.3774H18.0982C18.4382 14.3774 18.7155 14.1002 18.7155 13.7603C18.7155 13.4203 18.4411 13.143 18.0982 13.143V13.146Z"
+                    fill="#FAE300" />
+                <path
+                    d="M24.0348 13.3696L21.9655 10.6503L23.835 8.78078C24.0884 8.52733 24.0884 8.11584 23.835 7.8624C23.5815 7.60895 23.1701 7.60895 22.9166 7.8624L20.6028 10.1763V8.25592C20.6028 7.84743 20.2719 7.51953 19.8664 7.51953C19.4608 7.51953 19.1299 7.85042 19.1299 8.25592V13.6857C19.1299 14.0942 19.4608 14.4221 19.8664 14.4221C20.2719 14.4221 20.6028 14.0942 20.6028 13.6857V12.01L21.0233 11.5895L22.9822 14.1597C23.1999 14.4519 23.6143 14.5116 23.9036 14.2909C24.1958 14.0733 24.2524 13.6588 24.0348 13.3666V13.3696Z"
+                    fill="#FAE300" />
+                <path
+                    d="M14.2161 13.5483L12.2273 8.10382L12.2214 8.09785C12.0932 7.76688 11.7264 7.52539 11.2881 7.52539C10.8021 7.52539 10.3996 7.8235 10.322 8.21112C10.3071 8.24094 10.2952 8.26786 10.2833 8.30066L8.32729 13.5483C8.20504 13.8942 8.38692 14.27 8.72981 14.3892C9.07271 14.5115 9.45138 14.3296 9.57065 13.9838L9.91056 13.0176H12.6358L12.9757 13.9838C13.098 14.3267 13.4737 14.5085 13.8166 14.3892C14.1595 14.27 14.3413 13.8912 14.2191 13.5483H14.2161ZM10.3399 11.7862L11.2553 9.1742C11.2553 9.1742 11.2732 9.1742 11.2851 9.1742L12.2005 11.7832H10.3399V11.7862Z"
+                    fill="#FAE300" />
+            </svg>
+            친구한테 소문내고 커피쿠폰 받기
+        </button>
+        <div class="full-view">
+            <img class="full-image"
+                src="https://d2twywxul87hjh.cloudfront.net/event/one-hundred-won-deal-event/event-guide.jpg"
+                alt="패스오더 Image">
+        </div>
+    </div>
+
+    <div class="notice-wrapper">
+        <span class="notice-title">꼭 확인해주세요!</span>
+        <span class="notice-sub-title top-16">소문을 들은 친구</span>
+        <ul>
+            <li>쿠폰은 패스오더 가입이력이 없는 경우에만 지급됩니다.</li>
+            <li>소문을 들은 친구는 회원가입 즉시 사용가능한 1,500원 할인쿠폰을 받게 됩니다.</li>
+            <li>소문을 들은 친구가 1,500원 할인쿠폰을 받기 위해서는 [소문을 낸 친구가 공유해준 링크]를 통해 앱을 설치하고 가입할 때에만 정상 지급됩니다.</li>
+            <li>소문을 들은 친구가 받는 쿠폰의 유효기간은 발급일(회원가입일) 포함 5일입니다.</li>
+        </ul>
+        <span class="notice-sub-title">소문을 낸 친구</span>
+        <ul>
+            <li>소문을 낸 친구에게는 ‘소문을 들은 친구가 첫주문을 완료’ 하는 시점에 쿠폰이 지급됩니다.</li>
+            <li>소문을 낸 친구가 받은 쿠폰은 [내 쿠폰함]에서 확인 가능하며, 유효기간은 발급일 포함 30일입니다.</li>
+            <li>패스오더 전화주문은 첫 주문으로 인정되지 않습니다.</li>
+        </ul>
+        <span class="notice-sub-title">공통적용사항</span>
+        <ul>
+            <li>해당 이벤트는 횟수 제한 없이 무제한으로 참여가능합니다.</li>
+            <li>해당 이벤트 참여 후 회원탈퇴 시, 지급된 할인쿠폰은 소멸됩니다.</li>
+            <li>탈퇴 후 초대 링크를 통해 재가입하여도 할인쿠폰은 발급되지 않습니다.</li>
+            <li>유효기간이 만료된 쿠폰은 재발급이 불가합니다.</li>
+            <li>해당 이벤트는 상황에 따라 언제든지 변경되거나 종료될 수 있습니다.</li>
+        </ul>
+        <div class="inquiry">
+            <span>더 궁금한 점은 [아임패써 > 자주 묻는 질문 > 문의하기]에 남겨주시면</span>
+            <span>패써지원팀 확인 후 도와드리겠습니다.</span>
+        </div>
+    </div>
+
+    <div class="floating-button-container">
+        <button onclick="shareEvent('goToSpreadHundredFloating')">
+            <svg width="29" height="26" viewBox="0 0 29 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M14.4985 0.909307C6.95485 0.909307 0.842407 5.7426 0.842407 11.706C0.842407 15.5881 3.43349 18.9872 7.3216 20.8895C7.03536 21.9569 6.28695 24.7537 6.13787 25.3501C5.95301 26.0925 6.40921 26.0836 6.71036 25.8838C6.94591 25.7287 10.4524 23.3435 11.9671 22.3148C12.787 22.4371 13.6368 22.4996 14.5015 22.4996C22.0422 22.4996 28.1576 17.6663 28.1576 11.7029C28.1576 5.73954 22.0422 0.90625 14.5015 0.90625"
+                    fill="#391B1B" />
+                <path
+                    d="M9.00323 8.52441H5.01076C4.63506 8.52441 4.33093 8.82848 4.33093 9.20417C4.33093 9.57986 4.63506 9.88408 5.01076 9.88408H6.30779V14.6667C6.30779 14.8396 6.37935 15.0125 6.50458 15.1348C6.62683 15.257 6.79679 15.3286 6.97271 15.3286H7.11881C7.29174 15.3286 7.4617 15.257 7.58395 15.1348C7.70918 15.0095 7.78074 14.8396 7.78074 14.6667V9.88408H9.00621C9.3819 9.88408 9.68603 9.57986 9.68603 9.20417C9.68603 8.82848 9.3819 8.52441 9.00621 8.52441H9.00323Z"
+                    fill="#FAE300" />
+                <path
+                    d="M18.5982 14.0523H16.7407V9.16525C16.7407 8.75676 16.4097 8.42871 16.0042 8.42871C15.5987 8.42871 15.2677 8.75974 15.2677 9.16525V14.4309C15.2677 14.4727 15.2737 14.5114 15.2796 14.5502C15.2737 14.5889 15.2677 14.6277 15.2677 14.6665C15.2677 15.0064 15.542 15.2837 15.8849 15.2837H18.5982C18.9382 15.2837 19.2155 15.0064 19.2155 14.6665C19.2155 14.3266 18.9411 14.0492 18.5982 14.0492V14.0523Z"
+                    fill="#FAE300" />
+                <path
+                    d="M24.5348 14.2759L22.4655 11.5565L24.335 9.68703C24.5884 9.43358 24.5884 9.02209 24.335 8.76865C24.0815 8.5152 23.6701 8.5152 23.4166 8.76865L21.1028 11.0825V9.16217C21.1028 8.75368 20.7719 8.42578 20.3664 8.42578C19.9608 8.42578 19.6299 8.75667 19.6299 9.16217V14.5919C19.6299 15.0004 19.9608 15.3283 20.3664 15.3283C20.7719 15.3283 21.1028 15.0004 21.1028 14.5919V12.9162L21.5233 12.4957L23.4822 15.066C23.6999 15.3582 24.1143 15.4178 24.4036 15.1972C24.6958 14.9795 24.7524 14.565 24.5348 14.2728V14.2759Z"
+                    fill="#FAE300" />
+                <path
+                    d="M14.7161 14.4545L12.7273 9.01007L12.7214 9.0041C12.5932 8.67313 12.2264 8.43164 11.7881 8.43164C11.3021 8.43164 10.8996 8.72975 10.822 9.11737C10.8071 9.14719 10.7952 9.17411 10.7833 9.20691L8.82729 14.4545C8.70504 14.8004 8.88692 15.1762 9.22981 15.2955C9.57271 15.4177 9.95138 15.2359 10.0706 14.89L10.4106 13.9239H13.1358L13.4757 14.89C13.598 15.2329 13.9737 15.4147 14.3166 15.2955C14.6595 15.1762 14.8413 14.7974 14.7191 14.4545H14.7161ZM10.8399 12.6925L11.7553 10.0804C11.7553 10.0804 11.7732 10.0804 11.7851 10.0804L12.7005 12.6894H10.8399V12.6925Z"
+                    fill="#FAE300" />
+            </svg>
+            최대 3,000원 커피쿠폰 받기
+        </button>
+    </div>
+    </div>
+    <script type="text/javascript">
+        function shareEvent(code) {
+            const shareData = { code : code };
+            const varUA = navigator.userAgent.toLowerCase();
+
+            if (varUA.match('android') != null) {
+                window.shareLink.postMessage(JSON.stringify(shareData));
+
+            } else if (varUA.indexOf("iphone") > -1 || varUA.indexOf("ipad") > -1 || varUA.indexOf("ipod") > -1) {
+                window.webkit.messageHandlers.shareLink.postMessage(shareData);
+            } else {
+                //아이폰, 안드로이드 외 처리
+            }
+        }
+    </script>
+</body>
+
+</html>

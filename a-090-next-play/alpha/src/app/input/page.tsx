@@ -13,7 +13,6 @@ export default function InputPage() {
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-
         const originValue = e.target.value.replace(/[^0-9]/g, '').split('');
 
         const maskingSplit = masking.split('');
@@ -41,7 +40,6 @@ export default function InputPage() {
         const changedValue = currentValue.replace(/[^0-9]/g, '');
         setValue(changedValue);
         focusing(changedValue.length + count);
-
     }
 
     useEffect(() => {
