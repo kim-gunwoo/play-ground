@@ -1,0 +1,11 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<script>
+  const { ajax } = rxjs.ajax;
+  const { pluck } = rxjs.operators;
+
+  const obs$ = ajax(`https://api.github.com/search/users?q=user:mojombo`).pipe(
+    pluck("response", "items", 0, "html_url")
+  );
+  obs$.subscribe(console.log);
+</script>
