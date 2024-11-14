@@ -1,0 +1,26 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<script>
+  const { range, interval, fromEvent } = rxjs;
+  const { take, filter, pluck } = rxjs.operators;
+
+  fromEvent(document, "click")
+    .pipe(take(5), pluck("x"))
+    .subscribe(
+      console.log,
+      (err) => console.error(err),
+      (_) => console.log("COMPLETE")
+    );
+
+  fromEvent(document, "click")
+    .pipe(
+      pluck("x"),
+      filter((x) => x < 200),
+      take(5)
+    )
+    .subscribe(
+      console.log,
+      (err) => console.error(err),
+      (_) => console.log("COMPLETE")
+    );
+</script>
