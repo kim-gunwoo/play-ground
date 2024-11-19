@@ -1,0 +1,15 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<script>
+  const { interval, timer, fromEvent } = rxjs;
+  const { skipUntil, pluck } = rxjs.operators;
+
+  const obs1$ = interval(1000);
+  const obs2$ = fromEvent(document, "click");
+
+  obs1$.pipe(skipUntil(obs2$)).subscribe(
+    console.log,
+    (err) => console.error(err),
+    (_) => console.log("COMPLETE")
+  );
+</script>
