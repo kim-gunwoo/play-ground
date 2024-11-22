@@ -1,0 +1,18 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<script>
+  const { fromEvent } = rxjs;
+  const { ajax } = rxjs.ajax;
+  const { timeout, pluck } = rxjs.operators;
+
+  fromEvent(document, "click")
+    .pipe(timeout(3000))
+    .subscribe(
+      (_) => console.log("OK"),
+      (err) => console.error(err)
+    );
+
+  ajax("http://127.0.0.1:3000/people/name/random")
+    .pipe(pluck("response"), timeout(500))
+    .subscribe(console.log, console.error);
+</script>
