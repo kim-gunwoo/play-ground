@@ -1,0 +1,16 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<script>
+  const { BehaviorSubject, fromEvent, interval } = rxjs;
+  const { debounce, tap } = rxjs.operators;
+
+  const bs = new BehaviorSubject(1000);
+
+  fromEvent(document, "click")
+    .pipe(
+      tap((_) => console.log(bs.getValue())),
+      debounce((e) => interval(bs.getValue())),
+      tap((_) => bs.next(bs.getValue() + 500))
+    )
+    .subscribe((_) => console.log("CLICK"));
+</script>
