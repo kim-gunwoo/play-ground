@@ -1,0 +1,14 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<script>
+  const { concat, interval, fromEvent } = rxjs;
+  const { map, take } = rxjs.operators;
+
+  const interval$ = interval(1000).pipe(
+    map((_) => "interval"),
+    take(5)
+  );
+  const click$ = fromEvent(document, "click").pipe(map((_) => "click"));
+
+  concat(interval$, click$).subscribe(console.log);
+</script>
