@@ -1,0 +1,17 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<script>
+  const { interval, fromEvent } = rxjs;
+  const { mergeMap, map, take } = rxjs.operators;
+
+  fromEvent(document, "click")
+    .pipe(
+      mergeMap((e) =>
+        interval(1000).pipe(
+          map((i) => e.x + " : " + i),
+          take(5)
+        )
+      )
+    )
+    .subscribe(console.log);
+</script>
