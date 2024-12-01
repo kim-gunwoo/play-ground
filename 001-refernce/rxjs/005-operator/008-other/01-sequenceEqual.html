@@ -1,0 +1,18 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<input type="number" />
+
+<script>
+  const { from, fromEvent } = rxjs;
+  const { sequenceEqual, mergeMap, map, take } = rxjs.operators;
+
+  const num$ = from([3, 1, 4, 7, 5, 8, 2]);
+
+  const key$ = fromEvent(document, "keyup")
+    .pipe(
+      map((e) => Number(e.code.replace("Digit", ""))),
+      take(7),
+      sequenceEqual(num$)
+    )
+    .subscribe(console.log);
+</script>
