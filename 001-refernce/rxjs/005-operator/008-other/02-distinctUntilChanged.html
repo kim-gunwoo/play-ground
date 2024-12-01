@@ -1,0 +1,10 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<script>
+  const { of } = rxjs;
+  const { distinctUntilChanged } = rxjs.operators;
+
+  of(1, 1, 2, 2, 2, 1, 1, 2, 3, 3, 3, 4, 4, 1)
+    .pipe(distinctUntilChanged())
+    .subscribe(console.log);
+</script>
