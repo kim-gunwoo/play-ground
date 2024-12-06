@@ -1,0 +1,18 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<script>
+  const { range } = rxjs;
+  const { ajax } = rxjs.ajax;
+  const { mergeMap, pluck, retry } = rxjs.operators;
+
+  range(1, 20)
+    .pipe(
+      mergeMap((keyword) =>
+        ajax(`http://127.0.0.1:3000/people/quarter-error/${keyword}`).pipe(
+          pluck("response", "first_name"),
+          retry(3)
+        )
+      )
+    )
+    .subscribe(console.log);
+</script>
