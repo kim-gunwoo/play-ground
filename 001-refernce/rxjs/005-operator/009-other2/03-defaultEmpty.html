@@ -1,0 +1,10 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<script>
+  const { fromEvent, timer } = rxjs;
+  const { defaultIfEmpty, pluck, takeUntil } = rxjs.operators;
+
+  fromEvent(document, "click")
+    .pipe(takeUntil(timer(5000)), pluck("x"), defaultIfEmpty("NO CLICK"))
+    .subscribe(console.log);
+</script>

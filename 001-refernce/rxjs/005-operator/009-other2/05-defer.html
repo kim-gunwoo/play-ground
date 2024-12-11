@@ -1,0 +1,27 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<input type="checkbox" id="check" />
+
+<script>
+  const { iif, defer, fromEvent, of } = rxjs;
+  const { pluck } = rxjs.operators;
+
+  fromEvent(document.querySelector("#check"), "change")
+    .pipe(pluck("target", "checked"))
+    .subscribe((checked) => {
+      defer((_) => (checked ? of("CHECKED") : of("UNCHECKED"))).subscribe(
+        console.log
+      );
+    });
+
+  // iif : 단순화된 defer: 조건에 따라 두 스트림 중 하나 발행
+  fromEvent(document.querySelector("#check"), "change")
+    .pipe(pluck("target", "checked"))
+    .subscribe((checked) => {
+      iif((_) => checked, of("CHECKED"), of("UNCHECKED")).subscribe(
+        console.log,
+        (err) => console.log(err),
+        (_) => console.log("COMPLETE")
+      );
+    });
+</script>

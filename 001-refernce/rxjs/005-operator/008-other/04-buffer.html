@@ -1,0 +1,10 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<script>
+  const { interval, fromEvent } = rxjs;
+  const { buffer } = rxjs.operators;
+
+  interval(1000)
+    .pipe(buffer(fromEvent(document, "click")))
+    .subscribe(console.log);
+</script>

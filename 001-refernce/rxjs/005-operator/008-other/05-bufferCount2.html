@@ -1,0 +1,11 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<script>
+  // 클릭 3번중 한 번만 반응하기
+  const { fromEvent } = rxjs;
+  const { bufferCount } = rxjs.operators;
+
+  fromEvent(document, "click")
+    .pipe(bufferCount(3))
+    .subscribe((_) => console.log("FIRE"));
+</script>

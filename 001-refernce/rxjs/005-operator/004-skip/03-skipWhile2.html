@@ -1,0 +1,17 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<script>
+  const { range, interval, fromEvent } = rxjs;
+  const { skipWhile, filter, pluck } = rxjs.operators;
+
+  fromEvent(document, "click")
+    .pipe(
+      pluck("x"),
+      skipWhile((x) => x < 200)
+    )
+    .subscribe(
+      console.log,
+      (err) => console.error(err),
+      (_) => console.log("COMPLETE")
+    );
+</script>

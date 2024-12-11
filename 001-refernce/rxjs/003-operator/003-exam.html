@@ -1,0 +1,15 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<script>
+  const { fromEvent } = rxjs;
+
+  const { map } = rxjs.operators;
+  const observable$ = fromEvent(document, "click");
+
+  // ... observer 정의
+
+  observable$
+    .pipe(map((e) => e.x + " " + e.y))
+    //   .subscribe(observer);
+    .subscribe(console.log);
+</script>

@@ -1,0 +1,18 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<script>
+  const { interval, timer, fromEvent } = rxjs;
+  const { ajax } = rxjs.ajax;
+  const { takeUntil, pluck, tap } = rxjs.operators;
+
+  interval(50)
+    .pipe(
+      takeUntil(
+        ajax("http://127.0.0.1:3000/people/name/random").pipe(
+          pluck("response"),
+          tap(console.log)
+        )
+      )
+    )
+    .subscribe(console.log);
+</script>

@@ -1,0 +1,21 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<script>
+  const { fromEvent } = rxjs;
+  const { timeInterval, pluck, scan, tap } = rxjs.operators;
+
+  const clicks$ = fromEvent(document, "click").pipe(
+    timeInterval(),
+    pluck("interval"),
+    scan((acc, i) => acc + i, 0),
+    tap((x) => console.log("CLICKED: " + x))
+  );
+
+  clicks$.subscribe();
+
+  const { auditTime } = rxjs.operators;
+
+  clicks$
+    .pipe(auditTime(1000))
+    .subscribe((x) => console.log("OUTPUT: -------- " + x));
+</script>

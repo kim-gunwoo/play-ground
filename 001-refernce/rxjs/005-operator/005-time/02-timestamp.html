@@ -1,0 +1,21 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<script>
+  const { fromEvent } = rxjs;
+  const { timestamp, pluck, map } = rxjs.operators;
+
+  fromEvent(document, "click")
+    .pipe(pluck("x"), timestamp())
+    .subscribe(console.log);
+
+  fromEvent(document, "click")
+    .pipe(
+      pluck("x"),
+      timestamp(),
+      map((x) => {
+        x.timestamp = new Date(x.timestamp).toString();
+        return x;
+      })
+    )
+    .subscribe(console.log);
+</script>

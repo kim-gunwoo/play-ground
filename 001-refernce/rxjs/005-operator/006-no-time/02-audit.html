@@ -1,0 +1,13 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<script>
+  const { fromEvent, interval } = rxjs;
+  const { debounce, audit, pluck } = rxjs.operators;
+
+  fromEvent(document, "click")
+    .pipe(
+      pluck("y"),
+      audit((y) => interval(y * 10))
+    )
+    .subscribe(console.log);
+</script>

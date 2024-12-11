@@ -1,0 +1,11 @@
+<script src="https://unpkg.com/@reactivex/rxjs/dist/global/rxjs.umd.js"></script>
+
+<script>
+  const { combineLatest, interval, fromEvent } = rxjs;
+  const { pluck } = rxjs.operators;
+
+  combineLatest(
+    interval(2000),
+    fromEvent(document, "click").pipe(pluck("x"))
+  ).subscribe(console.log);
+</script>
